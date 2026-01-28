@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spaceH 電商開幕行銷策略</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --bg-dark: #1a1915;
+            --bg-card: #ffffff;
+            --accent: #8b7355;
+            --accent-light: #a69076;
+            --accent-dark: #6b5a45;
+            --text-primary: #1a1915;
+            --text-secondary: #5a5650;
+            --text-muted: #8a8580;
+            --border: #e5e2dc;
+            --border-dark: #d5d2cc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--bg-dark);
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--accent-light), transparent);
+        }
+
+        .brand-tag {
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 40px;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.2s forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.4s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 500px;
+            margin-bottom: 60px;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.6s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 80px;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.5rem;
+            color: var(--accent-light);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Part Divider */
+        .part-divider {
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .part-divider h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .part-divider p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 40px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        /* Flow Chart Container */
+        .flow-container {
+            background: var(--bg-card);
+            border-radius: 4px;
+            padding: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 28px 35px;
+            margin-top: 40px;
+        }
+
+        .highlight-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .highlight-text strong {
+            color: var(--accent-dark);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline-visual {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 60px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 60px;
+            right: 60px;
+            height: 1px;
+            background: var(--border-dark);
+        }
+
+        .timeline-point {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-point:hover .timeline-dot {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
+
+        .timeline-point.highlight .timeline-dot {
+            background: var(--accent);
+            width: 16px;
+            height: 16px;
+        }
+
+        .timeline-day {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timeline-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Key Points Grid */
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .key-point-card {
+            padding: 35px;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .key-point-card:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .key-point-number {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .key-point-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .key-point-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Platform Cards */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .platform-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .platform-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .platform-role {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .platform-list {
+            list-style: none;
+        }
+
+        .platform-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .platform-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Content Type Table */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            background: var(--bg-card);
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 20px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-table th {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+
+        .content-table td {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .content-table tr:hover td {
+            background: rgba(139, 115, 85, 0.03);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--accent-dark);
+            margin-right: 8px;
+            margin-bottom: 5px;
+        }
+
+        /* Comparison Section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+
+        .comparison-card.recommended {
+            border-color: var(--accent);
+            position: relative;
+        }
+
+        .comparison-card.recommended::before {
+            content: '建議策略';
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 16px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .comparison-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .comparison-list li::before {
+            content: '·';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Dark Section */
+        .section-dark {
+            background: var(--bg-dark);
+            color: #fff;
+        }
+
+        .section-dark .section-number {
+            color: var(--accent-light);
+        }
+
+        .section-dark .section-title {
+            color: #fff;
+        }
+
+        .section-dark .section-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .section-dark .flow-container {
+            background: rgba(255,255,255,0.03);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .section-dark .highlight-box {
+            background: rgba(255,255,255,0.03);
+            border-left-color: var(--accent-light);
+        }
+
+        .section-dark .highlight-text {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .section-dark .highlight-text strong {
+            color: var(--accent-light);
+        }
+
+        /* Summary */
+        .summary-quote {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+            text-align: center;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto 80px;
+            line-height: 2;
+            font-weight: 400;
+        }
+
+        .summary-highlight {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--bg-dark);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .key-points,
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .section {
+                padding: 70px 24px;
+            }
+
+            .flow-container {
+                padding: 30px 20px;
+            }
+
+            .timeline-visual {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0;
+            }
+
+            .timeline-visual::before {
+                width: 1px;
+                height: calc(100% - 40px);
+                left: 6px;
+                top: 20px;
+                right: auto;
+            }
+
+            .timeline-point {
+                display: flex;
+                align-items: flex-start;
+                text-align: left;
+                gap: 20px;
+            }
+
+            .timeline-dot {
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .content-table {
+                font-size: 0.85rem;
+            }
+
+            .content-table th,
+            .content-table td {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="brand-tag">Salon Origin × spaceH</span>
+        <h1>電商開幕行銷策略</h1>
+        <p class="hero-subtitle">將台北九間時尚美髮店的專業信任<br/>完整延伸至線上電商平台</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">9</span>
+                <span class="stat-label">直營門市</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">設計師實際使用</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">O2O</span>
+                <span class="stat-label">全通路整合</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part A: 線下策略 -->
+    <div class="part-divider">
+        <h2>PART A</h2>
+        <p>線下策略 — 門市導流與信任轉化</p>
+    </div>
+
+    <!-- Section 1: 全局總流程 -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">A-01</span>
+                <h2 class="section-title">全局策略流程</h2>
+                <p class="section-desc">從品牌優勢出發，建構完整的電商轉換路徑</p>
+            </div>
+            <div class="flow-container fade-in">
+                <div class="mermaid">
+                    flowchart TD
+                        A["品牌優勢<br/>台北九間時尚美髮店"]
+                        B["品牌定位<br/>Salon Origin 專業洗護"]
+                        C["目標客群<br/>重視造型與髮質的消費者"]
+                        D["產品策略<br/>設計師日常實際使用"]
+                        E["電商網站架構"]
+                        F["門市導流暖身"]
+                        G["電商正式開幕"]
+                        H["信任建立與內容擴散"]
+                        I["回購・會員・訂閱制"]
+                        
+                        A --> B --> C --> D --> E --> F --> G --> H --> I
+                        
+                        style A fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style C fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style D fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style E fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style F fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style G fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                        style H fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style I fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 門市導流流程 -->
+    <section class="section section-dark">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">A-02</span>
+                <h2 class="section-title">門市至電商導流機制</h2>
+                <p class="section-desc">spaceH 獨有的競爭優勢：實體門市信任轉化</p>
+            </div>
+            <div class="flow-container fade-in">
+                <div class="mermaid">
+                    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#2a2520', 'primaryTextColor': '#fff', 'primaryBorderColor': '#a69076', 'lineColor': '#a69076'}}}%%
+                    flowchart LR
+                        A["顧客到店"]
+                        B["設計師服務"]
+                        C["專業推薦<br/>『這是我們店裡用的』"]
+                        D["掃描 QR Code"]
+                        E["進入電商"]
+                        F["領取專屬優惠"]
+                        G["完成首購"]
+                        
+                        A --> B --> C --> D --> E --> F --> G
+                        
+                        style A fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style B fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style C fill:#a69076,stroke:#a69076,stroke-width:1px,color:#1a1915
+                        style D fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style E fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style F fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style G fill:#a69076,stroke:#a69076,stroke-width:1px,color:#1a1915
+                </div>
+            </div>
+            <div class="highlight-box fade-in">
+                <p class="highlight-text">
+                    <strong>核心競爭力</strong>——這條「設計師推薦 → 電商轉換」的信任鏈，是純電商品牌無法複製的獨特優勢。顧客在專業服務過程中建立的信賴感，能直接轉化為線上購買動機。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 商品頁轉換流程 -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">A-03</span>
+                <h2 class="section-title">商品頁轉換邏輯</h2>
+                <p class="section-desc">以專業背書為核心的購買說服架構</p>
+            </div>
+            <div class="flow-container fade-in">
+                <div class="mermaid">
+                    flowchart TD
+                        A["進入商品頁"]
+                        B["第一印象<br/>來自台北九間時尚美髮店"]
+                        C["痛點共鳴<br/>您是否有這些髮況困擾？"]
+                        D["專業解方<br/>設計師為什麼選擇這瓶"]
+                        E["適用對象<br/>適合誰・不適合誰"]
+                        F["使用教學<br/>設計師的使用方式"]
+                        G["真實見證<br/>門市實際使用照片"]
+                        H["行動召喚<br/>開幕限定優惠"]
+                        
+                        A --> B --> C --> D --> E --> F --> G --> H
+                        
+                        style A fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                        style C fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style D fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style E fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style F fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style G fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style H fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part B: 線上策略 -->
+    <div class="part-divider">
+        <h2>PART B</h2>
+        <p>線上策略 — 社群經營與廣告投放</p>
+    </div>
+
+    <!-- Section 4: 社群平台定位 -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">B-01</span>
+                <h2 class="section-title">社群平台角色定位</h2>
+                <p class="section-desc">不同平台承載不同任務，精準分配資源</p>
+            </div>
+            
+            <div class="platform-grid fade-in">
+                <div class="platform-card">
+                    <h3 class="platform-name">Instagram</h3>
+                    <span class="platform-role">品牌形象・視覺種草</span>
+                    <ul class="platform-list">
+                        <li>主打質感生活風格照</li>
+                        <li>設計師工作日常側拍</li>
+                        <li>產品使用前後對比</li>
+                        <li>Reels 短影片教學</li>
+                        <li>限時動態互動投票</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-name">Facebook</h3>
+                    <span class="platform-role">信任建立・深度內容</span>
+                    <ul class="platform-list">
+                        <li>門市故事與品牌理念</li>
+                        <li>設計師專業知識文章</li>
+                        <li>顧客真實回饋分享</li>
+                        <li>活動資訊與優惠公告</li>
+                        <li>社團經營培養鐵粉</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-name">LINE 官方帳號</h3>
+                    <span class="platform-role">會員經營・轉換推手</span>
+                    <ul class="platform-list">
+                        <li>新品上架第一手通知</li>
+                        <li>會員專屬優惠推播</li>
+                        <li>補貨提醒自動化</li>
+                        <li>一對一髮況諮詢</li>
+                        <li>預約門市服務整合</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flow-container fade-in" style="margin-top: 50px;">
+                <div class="mermaid">
+                    flowchart LR
+                        A["IG<br/>曝光種草"]
+                        B["FB<br/>深度了解"]
+                        C["LINE<br/>轉換購買"]
+                        D["電商<br/>完成訂單"]
+                        E["回購<br/>會員經營"]
+                        
+                        A --> B --> C --> D --> E
+                        E -.-> A
+                        
+                        style A fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style C fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style D fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                        style E fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 內容類型規劃 -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">B-02</span>
+                <h2 class="section-title">內容類型規劃</h2>
+                <p class="section-desc">四大內容主軸，建立完整內容矩陣</p>
+            </div>
+            
+            <table class="content-table fade-in">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">內容類型</th>
+                        <th style="width: 35%;">內容主題範例</th>
+                        <th style="width: 22%;">發布頻率</th>
+                        <th style="width: 25%;">適用平台</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>專業教學</strong></td>
+                        <td>洗髮正確手法、護髮黃金時間、頭皮養護觀念、造型品使用技巧</td>
+                        <td>每週 2-3 則</td>
+                        <td><span class="tag">IG Reels</span><span class="tag">FB</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>設計師日常</strong></td>
+                        <td>工作側拍、使用產品瞬間、與顧客互動花絮、門市環境氛圍</td>
+                        <td>每週 3-4 則</td>
+                        <td><span class="tag">IG 限動</span><span class="tag">IG Feed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>產品解析</strong></td>
+                        <td>成分說明、適用髮質分析、使用前後對比、設計師推薦理由</td>
+                        <td>每週 1-2 則</td>
+                        <td><span class="tag">FB</span><span class="tag">IG</span><span class="tag">LINE</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>顧客見證</strong></td>
+                        <td>使用心得分享、門市體驗回饋、改善歷程紀錄、回購原因訪談</td>
+                        <td>每週 1-2 則</td>
+                        <td><span class="tag">FB</span><span class="tag">IG</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>活動資訊</strong></td>
+                        <td>開幕優惠、節慶促銷、會員專屬、限時折扣</td>
+                        <td>依檔期規劃</td>
+                        <td><span class="tag">LINE</span><span class="tag">FB</span><span class="tag">IG</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 6: 短影片策略 -->
+    <section class="section section-dark">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">B-03</span>
+                <h2 class="section-title">短影片內容策略</h2>
+                <p class="section-desc">15-60 秒黃金時長，快速傳遞專業價值</p>
+            </div>
+            
+            <div class="key-points fade-in">
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">類型 A</span>
+                    <h3 class="key-point-title" style="color: #fff;">教學型</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">設計師示範正確洗髮手法、護髮技巧、造型重點。以「你可能一直做錯了」為開場吸引注意力。</p>
+                </div>
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">類型 B</span>
+                    <h3 class="key-point-title" style="color: #fff;">對比型</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">使用前後對比、便宜 vs 專業產品差異、一般人 vs 設計師手法比較。視覺衝擊建立產品說服力。</p>
+                </div>
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">類型 C</span>
+                    <h3 class="key-point-title" style="color: #fff;">幕後型</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">門市一天的日常、設計師備品過程、產品開發故事。真實感建立品牌溫度與信任。</p>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in" style="margin-top: 50px;">
+                <p class="highlight-text">
+                    <strong>製作建議</strong>——由門市設計師親自出鏡，不需過度剪輯，保持真實感。重點在於「專業內容」而非「精美畫面」，讓觀眾感受到「這就是我的設計師會跟我說的話」。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: KOL vs 設計師 -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">B-04</span>
+                <h2 class="section-title">網紅合作 vs 設計師內容</h2>
+                <p class="section-desc">策略選擇：誰來說更有說服力？</p>
+            </div>
+            
+            <div class="comparison-grid fade-in">
+                <div class="comparison-card">
+                    <h3 class="comparison-title">外部網紅 / KOL</h3>
+                    <ul class="comparison-list">
+                        <li>快速觸及新受眾，擴大品牌曝光</li>
+                        <li>合作成本較高，效益難以預估</li>
+                        <li>業配感明顯，信任度相對較低</li>
+                        <li>內容產出快但缺乏專業深度</li>
+                        <li>適合：大型檔期活動、品牌知名度建立</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card recommended">
+                    <h3 class="comparison-title">自家設計師</h3>
+                    <ul class="comparison-list">
+                        <li>專業背書最強，「我每天都在用」</li>
+                        <li>成本可控，可持續產出內容</li>
+                        <li>真實感強，消費者信任度高</li>
+                        <li>與門市服務連動，形成 O2O 閉環</li>
+                        <li>適合：日常經營、專業形象建立、長期策略</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <p class="highlight-text">
+                    <strong>策略建議</strong>——以設計師內容為主軸（佔 80%），建立專業可信的品牌形象；搭配少量微網紅合作（佔 20%），選擇真正使用過產品、形象契合的創作者，擴大觸及但維持真實感。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: 廣告投放策略 -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">B-05</span>
+                <h2 class="section-title">廣告投放策略</h2>
+                <p class="section-desc">精準分層，最大化廣告效益</p>
+            </div>
+            
+            <div class="flow-container fade-in">
+                <div class="mermaid">
+                    flowchart TD
+                        subgraph 冷流量["冷流量 — 品牌曝光"]
+                            A1["興趣受眾<br/>美髮/護髮/造型"]
+                            A2["類似受眾<br/>現有顧客 Lookalike"]
+                        end
+                        
+                        subgraph 暖流量["暖流量 — 信任建立"]
+                            B1["網站訪客<br/>瀏覽未購買"]
+                            B2["社群互動者<br/>按讚/留言/分享"]
+                            B3["影片觀看者<br/>觀看 50% 以上"]
+                        end
+                        
+                        subgraph 熱流量["熱流量 — 轉換收割"]
+                            C1["加入購物車<br/>未結帳"]
+                            C2["舊客回購<br/>購買滿 30 天"]
+                        end
+                        
+                        A1 --> B1
+                        A2 --> B2
+                        B1 --> C1
+                        B2 --> C1
+                        B3 --> C1
+                        C2 -.-> A1
+                        
+                        style A1 fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style A2 fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B1 fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B2 fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style B3 fill:#faf9f7,stroke:#8b7355,stroke-width:1px,color:#1a1915
+                        style C1 fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                        style C2 fill:#8b7355,stroke:#8b7355,stroke-width:1px,color:#fff
+                </div>
+            </div>
+
+            <table class="content-table fade-in" style="margin-top: 50px;">
+                <thead>
+                    <tr>
+                        <th>階段</th>
+                        <th>廣告目標</th>
+                        <th>素材類型</th>
+                        <th>預算配比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>冷流量</strong></td>
+                        <td>觸及、影片觀看</td>
+                        <td>品牌形象影片、設計師教學短片</td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>暖流量</strong></td>
+                        <td>互動、流量</td>
+                        <td>產品介紹、使用對比、顧客見證</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>熱流量</strong></td>
+                        <td>轉換、目錄銷售</td>
+                        <td>限時優惠、購物車提醒、回購優惠</td>
+                        <td>30%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Part C: 時程規劃 -->
+    <div class="part-divider">
+        <h2>PART C</h2>
+        <p>時程規劃 — 開幕行銷與長期經營</p>
+    </div>
+
+    <!-- Section 9: 開幕時間軸 -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">C-01</span>
+                <h2 class="section-title">開幕行銷時間軸</h2>
+                <p class="section-desc">14 天暖身期 + 開幕衝刺 + 持續擴散</p>
+            </div>
+            
+            <div class="timeline-visual fade-in">
+                <div class="timeline-point">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <div class="timeline-day">D-14</div>
+                        <div class="timeline-label">門市告知<br/>社群預熱</div>
+                    </div>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <div class="timeline-day">D-7</div>
+                        <div class="timeline-label">設計師內容<br/>廣告開跑</div>
+                    </div>
+                </div>
+                <div class="timeline-point highlight">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <div class="timeline-day">Day 0</div>
+                        <div class="timeline-label">正式開幕<br/>全通路曝光</div>
+                    </div>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <div class="timeline-day">D+7</div>
+                        <div class="timeline-label">回饋蒐集<br/>廣告優化</div>
+                    </div>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <div class="timeline-day">D+14</div>
+                        <div class="timeline-label">口碑擴散<br/>穩定營運</div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="content-table fade-in" style="margin-top: 60px;">
+                <thead>
+                    <tr>
+                        <th>階段</th>
+                        <th>線下動作</th>
+                        <th>線上動作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>D-14 ~ D-8</strong></td>
+                        <td>門市海報張貼、設計師口頭預告、QR Code 立牌準備</td>
+                        <td>社群倒數貼文、IG 限動預熱、LINE 好友募集</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D-7 ~ D-1</strong></td>
+                        <td>設計師拍攝產品介紹、門市場景素材收集</td>
+                        <td>設計師短影片上線、FB/IG 廣告開跑、開幕優惠預告</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 0</strong></td>
+                        <td>門市同步慶祝、設計師推薦話術啟動</td>
+                        <td>開幕貼文發布、LINE 推播、廣告全力放送</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D+1 ~ D+7</strong></td>
+                        <td>收集顧客使用回饋、門市購買數據追蹤</td>
+                        <td>顧客見證內容產出、廣告素材優化、再行銷啟動</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D+8 ~ D+14</strong></td>
+                        <td>優化門市導流話術、補貨與庫存調整</td>
+                        <td>成效分析報告、長期內容計畫確立、會員經營啟動</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 10: 長期經營 -->
+    <section class="section section-dark">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">C-02</span>
+                <h2 class="section-title">回購與品牌深化</h2>
+                <p class="section-desc">建立長期顧客關係，打造品牌忠誠度</p>
+            </div>
+            <div class="flow-container fade-in">
+                <div class="mermaid">
+                    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#2a2520', 'primaryTextColor': '#fff', 'primaryBorderColor': '#a69076', 'lineColor': '#a69076'}}}%%
+                    flowchart TD
+                        A["首購完成"]
+                        B["Email / LINE<br/>使用教學內容"]
+                        C["設計師<br/>保養建議推播"]
+                        D["智慧補貨提醒"]
+                        E["會員制度<br/>累積回饋"]
+                        F["訂閱制<br/>聯名限定商品"]
+                        
+                        A --> B --> C --> D --> E --> F
+                        
+                        style A fill:#a69076,stroke:#a69076,stroke-width:1px,color:#1a1915
+                        style B fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style C fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style D fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style E fill:#2a2520,stroke:#a69076,stroke-width:1px,color:#fff
+                        style F fill:#a69076,stroke:#a69076,stroke-width:1px,color:#1a1915
+                </div>
+            </div>
+            
+            <div class="key-points fade-in" style="margin-top: 50px;">
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">01</span>
+                    <h3 class="key-point-title" style="color: #fff;">持續互動</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">透過 Email 與 LINE 推播使用教學，維持品牌與顧客的連結</p>
+                </div>
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">02</span>
+                    <h3 class="key-point-title" style="color: #fff;">智慧提醒</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">根據產品使用週期推送補貨提醒，提升回購率</p>
+                </div>
+                <div class="key-point-card" style="border-color: rgba(255,255,255,0.1);">
+                    <span class="key-point-number">03</span>
+                    <h3 class="key-point-title" style="color: #fff;">會員經營</h3>
+                    <p class="key-point-desc" style="color: rgba(255,255,255,0.6);">建立會員分級制度與訂閱方案，創造長期穩定營收</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header fade-in" style="text-align: center;">
+                <span class="section-number">SUMMARY</span>
+                <h2 class="section-title">策略核心觀點</h2>
+            </div>
+            <p class="summary-quote fade-in">
+                spaceH 電商不是從零開始，<br/>
+                而是將 <span class="summary-highlight">九間門市的專業信任</span> 完整延伸至線上。<br/><br/>
+                線下靠設計師建立信任，線上用內容擴大影響力，<br/>
+                這是我們與純電商品牌的 <span class="summary-highlight">本質差異</span>。
+            </p>
+            
+            <div class="key-points fade-in">
+                <div class="key-point-card">
+                    <span class="key-point-number">01</span>
+                    <h3 class="key-point-title">信任資產</h3>
+                    <p class="key-point-desc">九間直營門市累積的專業口碑，是電商品牌無法用廣告預算買到的核心資產</p>
+                </div>
+                <div class="key-point-card">
+                    <span class="key-point-number">02</span>
+                    <h3 class="key-point-title">設計師優先</h3>
+                    <p class="key-point-desc">以設計師為內容主角，「實際在用」的真實性勝過任何網紅代言</p>
+                </div>
+                <div class="key-point-card">
+                    <span class="key-point-number">03</span>
+                    <h3 class="key-point-title">O2O 閉環</h3>
+                    <p class="key-point-desc">門市體驗 → 電商購買 → 回店服務，形成完整的顧客旅程閉環</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>spaceH × Salon Origin</p>
+        <p style="margin-top: 8px; opacity: 0.6;">電商開幕行銷策略報告</p>
+    </footer>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#faf9f7',
+                primaryTextColor: '#1a1915',
+                primaryBorderColor: '#8b7355',
+                lineColor: '#8b7355',
+                secondaryColor: '#8b7355',
+                tertiaryColor: '#f5f3f0',
+                fontFamily: 'Noto Sans TC, sans-serif',
+                fontSize: '14px'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20,
+                htmlLabels: true,
+                useMaxWidth: true
+            }
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
